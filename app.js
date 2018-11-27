@@ -84,14 +84,11 @@ class GroceryListItem extends React.Component {
   }
 
   render() {
-    var style;
-    if (this.state.hover) {
-      style = {fontWeight: 'bold'};
-    } else {
-      style = {fontWeight: 'normal'};
+    var style = {
+      fontWeight: this.state.hover ? 'bold' : 'normal'
     }
     return (
-      <li style={style} onMouseOver = {this.onListItemHover} onMouseOut = {this.onListItemHover}>{this.props.item}</li>
+      <li style={style} onMouseOver = {this.onListItemHover.bind(this)} onMouseOut = {this.onListItemHover.bind(this)}>{this.props.item}</li>
     );
   }
 
